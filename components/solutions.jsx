@@ -3,59 +3,9 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { industries } from "@/lib/industries-data"
 
 export default function Solutions() {
-  const solutions = [
-    {
-      title: "Retail",
-      slug: "retail",
-      description:
-        "Optimiza la experiencia del cliente con conteo de personas, análisis de comportamiento y prevención de pérdidas.",
-      image: "/modern-retail-store-with-security-cameras.jpg",
-    },
-    {
-      title: "Industria",
-      slug: "industria",
-      description:
-        "Mejora la seguridad laboral con detección de EPP, monitoreo de zonas peligrosas y control de accesos.",
-      image: "/industrial-factory-floor-with-safety-monitoring.jpg",
-    },
-    {
-      title: "Consorcios",
-      slug: "consorcios",
-      description:
-        "Protege edificios residenciales con control de accesos inteligente, detección de intrusos y vigilancia 24/7.",
-      image: "/modern-apartment-building-lobby-with-security.jpg",
-    },
-    {
-      title: "Rural",
-      slug: "rural",
-      description:
-        "Vigila propiedades extensas con cámaras de largo alcance, detección perimetral y alertas en tiempo real.",
-      image: "/farm-rural-property-with-surveillance.jpg",
-    },
-    {
-      title: "Casas de Campo",
-      slug: "casas-campo",
-      description:
-        "Seguridad completa para tu casa de campo con monitoreo remoto, detección de movimiento y control inteligente.",
-      image: "/country-house-with-security-system.jpg",
-    },
-    {
-      title: "Barrios Cerrados",
-      slug: "barrios-cerrados",
-      description:
-        "Gestiona la seguridad del barrio con control de accesos vehicular, reconocimiento de patentes y patrullaje virtual.",
-      image: "/gated-community-entrance-with-security.jpg",
-    },
-    {
-      title: "Shopping Centers",
-      slug: "shopping-centers",
-      description: "Analiza el flujo de visitantes, previene incidentes y optimiza la operación con IA avanzada.",
-      image: "/shopping-mall-interior-with-crowd-analytics.jpg",
-    },
-  ]
-
   return (
     <section id="soluciones" className="py-20 md:py-32">
       <div className="container max-w-7xl mx-auto px-4">
@@ -69,7 +19,7 @@ export default function Solutions() {
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {solutions.map((solution) => (
+          {industries.map((solution) => (
             <Card
               key={solution.title}
               className="group overflow-hidden border-border hover:border-primary/50 transition-all"
@@ -87,7 +37,7 @@ export default function Solutions() {
                 <CardDescription>{solution.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <Link href={`#industria-${solution.slug}`}>
+                <Link href={`/soluciones/${solution.slug}`}>
                   <Button variant="ghost" size="sm" className="gap-2 px-0">
                     Conocer más
                     <ArrowRight className="h-4 w-4" />
